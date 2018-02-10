@@ -74,6 +74,6 @@ app.use('/gql', bodyParser.json(), graphqlExpress({ schema }));
 app.use('/graphiql', graphiqlExpress({ endpointURL: '/gql' }));
 
 // Start the server
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log('Go to http://localhost:3000/graphiql to run queries!');
 });
