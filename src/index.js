@@ -10,7 +10,11 @@ const typeDefs = `
   type Query {
     results(year: Int): [Result]
   }
-  type Result { date: String, numbers: [Int]}
+  type Result {
+    id: ID!,
+    date: String,
+    numbers: [Int]
+  }
 `;
 
 // The resolvers
@@ -46,6 +50,7 @@ const resolvers = {
 
 
           banco.push({
+            id: $row.find('.date').text(),
             date: $row.find('.date').text(),
             numbers
           });
